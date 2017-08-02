@@ -1,6 +1,6 @@
 # demo_vue
 
-> A Vue.js project
+> 一个使用vuejs搭建的售卖平台demo
 
 ## Build Setup
 
