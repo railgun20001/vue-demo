@@ -15,14 +15,14 @@ export default {
     selections: {
       type: Array,
       default: [{
-        label: '客户版',
+        label: 'test',
         value: 0
       }]
     }
   },
   data () {
     return {
-      nowIndexs: []
+      nowIndexs: [0]
     }
   },
   methods: {
