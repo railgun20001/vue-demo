@@ -100,11 +100,11 @@
           确认购买
         </div>
       </my-dialog>
-      <my-dialog :is-show="isShowErrDialog" @on-close="closeErrDialog">
-        支付失败！
-      </my-dialog>
-      <check-order :is-show-sheck-dialog="isShowCheckDialog" :order-id="orderId" ></check-order>
     </div>
+    <my-dialog :is-show="isShowErrDialog" @on-close="closeErrDialog">
+      支付失败！
+    </my-dialog>
+    <check-order :is-show-check-dialog="isShowCheckDialog" :order-id="orderId" @on-close-check-dialog="onCloseCheckDialog"></check-order>
   </div>
 </template>
 
@@ -161,8 +161,8 @@ export default{
       this.$http.post('/api/createOrder', reqParams)
       .then((res) => {
         this.orderId = res.data.orderId
-        this.isShowDialog = false
         this.isShowCheckDialog = true
+        this.isShowDialog = false
       }, (err) => {
         console.log(err)
         this.isShowDialog = false
@@ -180,6 +180,9 @@ export default{
     },
     closeErrDialog () {
       this.isShowErrDialog = false
+    },
+    onCloseCheckDialog () {
+      this.isShowCheckDialog = false
     }
   },
   data () {

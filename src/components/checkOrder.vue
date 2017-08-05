@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my-dialog :is-show="isShowCheckDialog">
+    <my-dialog :is-show="isShowCheckDialog" @on-close="checkStatus">
       请检查你的支付状态！
       <div class="button" @click="checkStatus">
         支付成功
@@ -41,10 +41,20 @@ export default {
   },
   methods: {
     checkStatus () {
-
+      this.$http.post('/api/checkOrder', {orderId: this.orderId})
+      .then((res) => {
+        this.isShowSuccessDialog = true
+        this.$emit('on-close-check-dialog')
+      }, (err) => {
+        console.log(err)
+        this.isShowFailDialog = true
+        this.$emit('on-close-check-dialog')
+      })
     },
     toOrderList () {
-
+      this.isShowSuccessDialog = false
+      this.isShowFailDialog = false
+      this.$router.push({path: '/orderList'})
     }
   }
 }

@@ -10,6 +10,7 @@ import Count from './pages/detail/count.vue'
 import Analysis from './pages/detail/analysis.vue'
 import Forecast from './pages/detail/forecast.vue'
 import Publish from './pages/detail/publish.vue'
+import OrderList from './pages/orderList.vue'
 
 Vue.config.productionTip = false
 
@@ -23,7 +24,10 @@ let router = new VueRouter({
       component: IndexPage
     },
     {
-
+      path: '/orderList',
+      component: OrderList
+    },
+    {
       path: '/detail',
       component: DetailPage,
       redirect: '/detail/count',
