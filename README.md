@@ -1,6 +1,16 @@
 # demo_vue
 
-> 一个使用vuejs搭建的售卖平台demo
+> 一个使用vuejs搭建的售卖平台demo/
+
+## 主页
+>
+>![Alt text](/static/img/index.png)
+
+## 功能展示页
+
+> 在主页通过点击幻灯片或点击立即购买来到此页面（目前仅流量分析功能完善）
+> ![Alt text](/static/img/show.png)
+
 
 ## Build Setup
 
